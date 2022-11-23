@@ -23,3 +23,9 @@ constructor(scope: Construct, id: string, props: Psycopg2LambdaLayerProps);
 |  id | string |  |
 |  props | [Psycopg2LambdaLayerProps](./psycopg2-lambda-layer.psycopg2lambdalayerprops.md) |  |
 
+## Exceptions
+
+RangeError
+
+If `architecture` is not in [SUPPORTED\_ARCHITECTURES](./psycopg2-lambda-layer.supported_architectures.md)<!-- -->, or if `runtime` is not in [PYTHON\_RUNTIMES](./psycopg2-lambda-layer.python_runtimes.md)<!-- -->. This error is suppressed if [props.skipsRuntimeChecks](./psycopg2-lambda-layer.psycopg2lambdalayerprops.skipsruntimechecks.md) is `true`<!-- -->.
+

@@ -18,10 +18,10 @@ Packages psycopg2 as an AWS Lambda layer.
 |  --- | --- |
 |  [Psycopg2LambdaLayerProps](./psycopg2-lambda-layer.psycopg2lambdalayerprops.md) | <b><i>(BETA)</i></b> Properties for <code>Psycopg2LambdaLayer</code>. |
 
-## Type Aliases
+## Variables
 
-|  Type Alias | Description |
+|  Variable | Description |
 |  --- | --- |
-|  [PythonRuntime](./psycopg2-lambda-layer.pythonruntime.md) | <b><i>(BETA)</i></b> Python runtimes. |
-|  [SupportedArchitecture](./psycopg2-lambda-layer.supportedarchitecture.md) | <b><i>(BETA)</i></b> Supported architectures. |
+|  [PYTHON\_RUNTIMES](./psycopg2-lambda-layer.python_runtimes.md) | <b><i>(BETA)</i></b> Python runtimes. |
+|  [SUPPORTED\_ARCHITECTURES](./psycopg2-lambda-layer.supported_architectures.md) | <b><i>(BETA)</i></b> Supported architectures. |
 

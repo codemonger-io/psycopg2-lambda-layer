@@ -19,9 +19,10 @@ export interface Psycopg2LambdaLayerProps
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [architecture](./psycopg2-lambda-layer.psycopg2lambdalayerprops.architecture.md) | <code>readonly</code> | [SupportedArchitecture](./psycopg2-lambda-layer.supportedarchitecture.md) | <b><i>(BETA)</i></b> Architecture to build. |
+|  [architecture](./psycopg2-lambda-layer.psycopg2lambdalayerprops.architecture.md) | <code>readonly</code> | lambda.Architecture | <b><i>(BETA)</i></b> Architecture to build. |
 |  [description?](./psycopg2-lambda-layer.psycopg2lambdalayerprops.description.md) | <code>readonly</code> | string | <b><i>(BETA)</i></b> <i>(Optional)</i> Description of the layer. |
 |  [layerVersionName?](./psycopg2-lambda-layer.psycopg2lambdalayerprops.layerversionname.md) | <code>readonly</code> | string | <b><i>(BETA)</i></b> <i>(Optional)</i> Name of the layer version. |
 |  [license?](./psycopg2-lambda-layer.psycopg2lambdalayerprops.license.md) | <code>readonly</code> | string | <b><i>(BETA)</i></b> <i>(Optional)</i> License of the layer. |
-|  [runtime](./psycopg2-lambda-layer.psycopg2lambdalayerprops.runtime.md) | <code>readonly</code> | [PythonRuntime](./psycopg2-lambda-layer.pythonruntime.md) | <b><i>(BETA)</i></b> Runtime to build. Only Python runtimes are acceptable. |
+|  [runtime](./psycopg2-lambda-layer.psycopg2lambdalayerprops.runtime.md) | <code>readonly</code> | lambda.Runtime | <b><i>(BETA)</i></b> Runtime to build. Only Python runtimes are acceptable. |
+|  [skipsRuntimeChecks?](./psycopg2-lambda-layer.psycopg2lambdalayerprops.skipsruntimechecks.md) | <code>readonly</code> | boolean | <b><i>(BETA)</i></b> <i>(Optional)</i> Whether to skip checks of the architecture and runtime. |
 

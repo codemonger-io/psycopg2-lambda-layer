@@ -12,5 +12,5 @@ Runtime to build. Only Python runtimes are acceptable.
 <b>Signature:</b>
 
 ```typescript
-readonly runtime: PythonRuntime;
+readonly runtime: lambda.Runtime;
 ```

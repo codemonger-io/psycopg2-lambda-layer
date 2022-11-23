@@ -12,5 +12,5 @@ Architecture to build.
 <b>Signature:</b>
 
 ```typescript
-readonly architecture: SupportedArchitecture;
+readonly architecture: lambda.Architecture;
 ```

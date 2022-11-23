@@ -14,17 +14,18 @@ export class Psycopg2LambdaLayer extends aws_lambda.LayerVersion {
 
 // @beta
 export interface Psycopg2LambdaLayerProps {
-    readonly architecture: SupportedArchitecture;
+    readonly architecture: aws_lambda.Architecture;
     readonly description?: string;
     readonly layerVersionName?: string;
     readonly license?: string;
-    readonly runtime: PythonRuntime;
+    readonly runtime: aws_lambda.Runtime;
+    readonly skipsRuntimeChecks?: boolean;
 }
 
 // @beta
-export type PythonRuntime = typeof aws_lambda.Runtime.PYTHON_3_7 | typeof aws_lambda.Runtime.PYTHON_3_8 | typeof aws_lambda.Runtime.PYTHON_3_9;
+export const PYTHON_RUNTIMES: readonly [aws_lambda.Runtime, aws_lambda.Runtime, aws_lambda.Runtime];
 
 // @beta
-export type SupportedArchitecture = typeof aws_lambda.Architecture.ARM_64 | typeof aws_lambda.Architecture.X86_64;
+export const SUPPORTED_ARCHITECTURES: readonly [aws_lambda.Architecture, aws_lambda.Architecture];
 
 ```
