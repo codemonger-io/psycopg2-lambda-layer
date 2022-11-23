@@ -4,7 +4,7 @@ English / [日本語](./README.ja.md)
 
 Packages [`psycopg2`](https://github.com/psycopg/psycopg2) as an [AWS Lambda (Lambda)](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) layer.
 
-This library is intended to work with [AWS Cloud Development Kit (CDK)](https://docs.aws.amazon.com/cdk/v2/guide/home.html) version 2 or higher.
+This module is intended to work with [AWS Cloud Development Kit (CDK)](https://docs.aws.amazon.com/cdk/v2/guide/home.html) version 2 or higher.
 
 ## Getting started
 
@@ -53,10 +53,10 @@ def handler(event, context):
     conn = psycopg2.connect(database_uri)
 ```
 
-## Why do you need this package?
+## Why do you need this module?
 
 Runtimes for Lambda lack some dependencies of `psycopg2` to operate; e.g., [`libpq`](https://www.postgresql.org/docs/15/libpq.html), `openssl`.
-This package builds `libpq` from the [source code](https://github.com/postgres/postgres) on a Lambda runtime image.
+This module builds `libpq` from the [source code](https://github.com/postgres/postgres) on a Lambda runtime image.
 And then it builds a [wheel](https://pip.pypa.io/en/stable/cli/pip_wheel/) of `psycopg2` from the [source code](https://github.com/psycopg/psycopg2) while bundling all the necessary shared objects into the wheel with [`auditwheel`](https://github.com/pypa/auditwheel).
 
 Please refer to [`src/Dockerfile`](./src/Dockerfile) for more details.
@@ -78,6 +78,6 @@ This project may be very handy if you do not mind the origin of binaries.
 
 https://github.com/jkehler/awslambda-psycopg2
 
-This project provides prebuilt psycopg2 binaries for Lambda runtimes.
+This project provides prebuilt `psycopg2` binaries for Lambda runtimes.
 This project may also be handy if you do not mind the origin of binaries.
 But, unfortunately, there are no packages built for ARM64.
