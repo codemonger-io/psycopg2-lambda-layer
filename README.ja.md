@@ -18,7 +18,7 @@ npm install https://github.com/codemonger-io/psycopg2-lambda-layer.git#v0.1.0
 
 ### Lambda Layerを確保してリンクする
 
-`Psycopg2LambdaLayer`をあなたのCDKスタックとLambda関数に追加してください。
+[`Psycopg2LambdaLayer`](./api-docs/markdown/psycopg2-lambda-layer.psycopg2lambdalayer.md)をあなたのCDKスタックとLambda関数に追加してください。
 ```ts
 import { aws_lambda as lambda } from 'aws-cdk-lib';
 import { Construct } from 'constructs';

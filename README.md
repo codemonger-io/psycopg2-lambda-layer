@@ -18,7 +18,7 @@ npm install https://github.com/codemonger-io/psycopg2-lambda-layer.git#v0.1.0
 
 ### Provisioning and linking a Lambda layer
 
-Add `Psycopg2LambdaLayer` to your CDK stack and your Lambda function:
+Add [`Psycopg2LambdaLayer`](./api-docs/markdown/psycopg2-lambda-layer.psycopg2lambdalayer.md) to your CDK stack and your Lambda function:
 ```ts
 import { aws_lambda as lambda } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
