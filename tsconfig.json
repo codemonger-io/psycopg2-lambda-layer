@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2015"],
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "declarationDir": "dist/dts"
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
