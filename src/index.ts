@@ -16,19 +16,21 @@ import { Construct } from 'constructs';
  *
  * @beta
  */
-export type PythonRuntime =
-  typeof lambda.Runtime.PYTHON_3_7 |
-  typeof lambda.Runtime.PYTHON_3_8 |
-  typeof lambda.Runtime.PYTHON_3_9;
+export const PYTHON_RUNTIMES = [
+  lambda.Runtime.PYTHON_3_7,
+  lambda.Runtime.PYTHON_3_8,
+  lambda.Runtime.PYTHON_3_9,
+] as const;
 
 /**
  * Supported architectures.
  *
  * @beta
  */
-export type SupportedArchitecture =
-  typeof lambda.Architecture.ARM_64 |
-  typeof lambda.Architecture.X86_64;
+export const SUPPORTED_ARCHITECTURES = [
+  lambda.Architecture.ARM_64,
+  lambda.Architecture.X86_64,
+] as const;
 
 /**
  * Properties for `Psycopg2LambdaLayer`.
@@ -43,9 +45,15 @@ export interface Psycopg2LambdaLayerProps {
   /** License of the layer. */
   readonly license?: string;
   /** Architecture to build. */
-  readonly architecture: SupportedArchitecture;
+  readonly architecture: lambda.Architecture;
   /** Runtime to build. Only Python runtimes are acceptable. */
-  readonly runtime: PythonRuntime;
+  readonly runtime: lambda.Runtime;
+  /**
+   * Whether to skip checks of the architecture and runtime.
+   *
+   * @defaultValue `false`
+   */
+  readonly skipsRuntimeChecks?: boolean;
 }
 
 /**
@@ -54,8 +62,22 @@ export interface Psycopg2LambdaLayerProps {
  * @beta
  */
 export class Psycopg2LambdaLayer extends lambda.LayerVersion {
+  /**
+   * @throws RangeError
+   *
+   *   If `architecture` is not in {@link SUPPORTED_ARCHITECTURES},
+   *   or if `runtime` is not in {@link PYTHON_RUNTIMES}.
+   *   This error is suppressed if
+   *   {@link Psycopg2LambdaLayerProps.skipsRuntimeChecks | props.skipsRuntimeChecks} is `true`.
+   */
   constructor(scope: Construct, id: string, props: Psycopg2LambdaLayerProps) {
     const { architecture, runtime } = props;
+
+    // verifies the architecture and runtime
+    if (!props.skipsRuntimeChecks) {
+      verifyArchitecture(architecture);
+      verifyRuntime(runtime);
+    }
 
     // builds a Docker image
     // psycopg2 will be installed in /var/packaged
@@ -83,5 +105,23 @@ export class Psycopg2LambdaLayer extends lambda.LayerVersion {
         },
       }),
     });
+  }
+}
+
+// makes sure a given architecture is supported.
+function verifyArchitecture(architecture: lambda.Architecture) {
+  // I am not sure we can directly compare references
+  if (SUPPORTED_ARCHITECTURES.find(a => a.name === architecture.name) == null) {
+    throw new RangeError(
+      `architecture "${architecture.name}" is not supported`,
+    );
+  }
+}
+
+// makes sure a given runtime is supported.
+function verifyRuntime(runtime: lambda.Runtime) {
+  // I am not sure we can directly compare references
+  if (PYTHON_RUNTIMES.find(r => r.name === runtime.name) == null) {
+    throw new RangeError(`runtime "${runtime.name}" is not supported`);
   }
 }
